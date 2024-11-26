@@ -7,3 +7,10 @@ mvn exec:java -DmainClass="com.joe.learning.ocr.OcrApp" -Djna.debug_load=true -D
 #populate corresponding vision end point and key
 mvn exec:java -DmainClass="com.joe.learning.ocr.OcrAzureVisionApp" -DApiUrl="<<EndPoint>>" -DApiKey="<<Key>>"
 
+#notes
+curl -X 'POST' \
+  'https://<<api end point>>/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2024-02-01' \
+  -H 'accept: application/json' \
+  -H 'Ocp-Apim-Subscription-Key: <<api key>>' \
+  -H 'Content-Type: application/octet-stream' \
+  --data-binary '@data/sample_image_ocr.png'
