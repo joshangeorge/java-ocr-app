@@ -1,0 +1,9 @@
+
+#change directory to app directory
+cd ~/java-beam-app
+
+mvn exec:java -DmainClass="com.joe.learning.ocr.OcrApp" -Djna.debug_load=true -Djna.library.path=/usr/local/lib
+
+#populate corresponding vision end point and key
+mvn exec:java -DmainClass="com.joe.learning.ocr.OcrAzureVisionApp" -DApiUrl="<<EndPoint>>" -DApiKey="<<Key>>"
+
